@@ -1,0 +1,214 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("images.png");
+    margin: 0;
+}
+
+.container{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+.first{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    z-index: 2;
+    backdrop-filter: blur(10px);
+ 
+}
+.chooseturn{
+    display: flex;
+    gap:100px;
+}
+.cross{
+    padding:5px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius:20px ;
+    border: 1px solid black;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: 2s;
+}
+.circle{
+    padding:5px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius:20px ;
+    border: 1px solid black;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: 2s;
+}
+.circle:hover,
+.cross:hover{
+    transition: 0;
+    background-color: rgb(11, 11, 11);
+}
+
+.show1{
+    display: none;
+}
+:root{
+ --cell-size: 150px;
+ --mark-size: calc(var(--cell-size)* .8);
+}
+
+.board{
+    width:100vw;
+    height:100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3,auto);
+    align-items: center;
+}
+
+.cell{
+    background:transparent;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 10px solid rgb(152, 143, 151);
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+.cell.x,
+.cell.o{
+    cursor:not-allowed;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top:none;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7){
+    border-left:none;
+}
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8){
+    border-bottom:none;
+}
+.cell:last-child,
+.cell:nth-child(3),
+.cell:nth-child(6){
+    border-right:none;
+}
+
+
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after{
+    content:'';
+    position: absolute;
+    width: calc(var(--mark-size)* .15);
+    height: var(--mark-size);
+    background-color: rgb(190, 23, 23);
+    transition-duration: 1000ms;
+
+}
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after{
+    
+    background-color: lightgray;
+}
+
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.o):hover::before{
+    transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.o):hover:after{
+    transform: rotate(-45deg);
+}
+
+
+.cell.o::before,
+.cell.o::after,
+.board.o .cell:not(.x):not(.o):hover::before,
+.board.o .cell:not(.x):not(.o):hover::after {
+    content:'';
+    border-radius: 50%;
+    position: absolute;
+    transition-duration: 1000ms;
+
+}
+
+.cell.o::before,
+.board.o .cell:not(.x):not(.o):hover::before{
+    width: var(--mark-size);
+    height: var(--mark-size);
+    background-color: black;
+}
+.board.o .cell:not(.x):not(.o):hover::before,
+.board.o .cell:not(.x):not(.o):hover::after{
+    background-color: lightgray;
+}
+
+.cell.o::after,
+.board.o .cell:not(.x):not(.o):hover::after{
+    width: calc(var(--mark-size)*.7);
+    height: calc(var(--mark-size)*.7);
+    background:url("images.png");
+}
+.winning-message{
+    display: none;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    background-color:rgba(0,0,0,.8);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size:5rem;
+    backdrop-filter: blur(10px);
+    color: rgb(247, 34, 34);
+
+}
+.winning-message button{
+    font-size: 3rem;
+    font-family:'Times New Roman', Times, serif;
+    background: transparent;
+    border: 1px solid rgb(255, 254, 254);
+    border-radius: 20%;
+    cursor: pointer;
+    padding: 10px 10px;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,0.5);
+    color: white;
+}
+
+.winning-message button:hover{
+    background-color: rgb(0, 0, 0);
+    /* color:rgb(248, 4, 4); */
+    border: 1px solid rgb(255, 252, 252);
+    transition-duration: 500ms;
+    height: 70px;
+    width: 160px;
+
+}
+
+.winning-message.show{
+    display: flex;
+}
