@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}   
+body{
+    font-family:Roboto;
+    text-align: center;
+    display: flex;
+    background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );}
+
+
+.one{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex:.2;
+}
+.two{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    flex:.8;
+}
+
+
+.scene{
+    margin: 40px 0;
+    position: relative;
+    width: 710px;
+    height: 340px;
+    margin: 80px auto;
+    perspective: 1000px;
+    background:transparent;
+
+}
+
+.carousel{
+    width:100%;
+    height:100%;
+    position:absolute;
+    transform: translateZ(-500px);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.carousel_cell{
+    position: absolute;
+    width: 550px;
+    height: 300px;
+    left: 90px;
+    top: 25px;
+    border: 2px solid black;
+    color: white;
+    text-align: center;
+    transition: transform 1s,opacity 1s;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.carousel_cell:nth-child(1) { background: hsla(  0, 100%, 50%, 0.8); }
+.carousel_cell:nth-child(2) { background: hsla( 40, 100%, 50%, 0.8); }
+.carousel_cell:nth-child(3) { background: hsla( 80, 100%, 50%, 0.8); }
+.carousel_cell:nth-child(4) { background: hsla(120, 100%, 50%, 0.8); }
+.carousel_cell:nth-child(5) { background: hsla(160, 100%, 50%, 0.8); }
+.carousel_cell:nth-child(6) { background: hsla(180, 87%, 68%, 0.982); }
+
+.carousel_cell:nth-child(1) { transform: rotateY(  0deg) translateZ(550px); }
+.carousel_cell:nth-child(2) { transform: rotateY( 60deg) translateZ(550px); }
+.carousel_cell:nth-child(3) { transform: rotateY( 120deg) translateZ(550px); }
+.carousel_cell:nth-child(4) { transform: rotateY(180deg) translateZ(550px); }
+.carousel_cell:nth-child(5) { transform: rotateY(240deg) translateZ(550px); }
+.carousel_cell:nth-child(6) { transform: rotateY(300deg) translateZ(550px); }
+
+
+
+  .scene2{
+    margin: 40px 0;
+    position: relative;
+    width: 190px;
+    height: 200px;
+    margin: 80px auto;
+    perspective: 1000px;
+    background:transparent;
+}
+
+.carousel2{
+    width:100%;
+    height:100%;
+    position:absolute;
+    transform: translateZ(-288px);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.carousel_cell2{
+    position: absolute;
+    width: 190px;
+    height: 180px;
+    bottom: 20px;
+    border: 2px solid black;
+    line-height: 80px;
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s,opacity 1s;
+}
+
+.carousel_cell2:nth-child(1) { background: hsla(0, 100%, 50%, 0.938); }
+.carousel_cell2:nth-child(2) { background: hsla(40, 100%, 50%, 0.909); }
+.carousel_cell2:nth-child(3) { background: hsla(80, 100%, 50%, 0.94); }
+.carousel_cell2:nth-child(4) { background: hsla(120, 100%, 50%, 0.915); }
+.carousel_cell2:nth-child(5) { background: hsla(160, 100%, 50%, 0.908); }
+.carousel_cell2:nth-child(6) { background: hsla(180, 85%, 61%, 0.982); }
+
+.carousel_cell2:nth-child(1) { transform: rotateX(0deg) translateZ(180px); }
+.carousel_cell2:nth-child(2) { transform: rotateX(60deg) translateZ(180px); }
+.carousel_cell2:nth-child(3) { transform: rotateX(120deg) translateZ(180px); }
+.carousel_cell2:nth-child(4) { transform: rotateX(180deg) translateZ(180px); }
+.carousel_cell2:nth-child(5) { transform: rotateX(240deg) translateZ(180px); }
+.carousel_cell2:nth-child(6) { transform: rotateX(300deg) translateZ(180px); }
+
+.carousel_options2{
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+.image{
+    display: flex;
+    flex: 0.2;
+    height: 200px;
+    justify-content: center;
+    margin-top: 40px ;
+    border:none;
+    box-shadow: 0 10px 10px 4px rgba(0,0,0,.3);
+  }
+  .text{
+    position: relative;
+    display: flex;
+    flex:0.8;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: inherit;
+    box-shadow:4px 6px 30px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    outline: none;
+    animation: float 2s infinite alternate-reverse
+    ease-in-out;
+    border: 1px solid rgb(12, 12, 12);
+    color: rgb(18, 18, 18);
+    font-family: Roboto;
+    font-weight: bold;
+
+    }
+
+    .text2{
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow:4px 6px 30px rgba(0,0,0,0.2);
+        border-radius: 30px;
+    }
+
+    @keyframes float{
+        0%{
+            bottom: 0px;
+        }
+        100%{
+            bottom: 30px;
+        }
+    }
+    .gamestart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .startbutton{
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow:10px 10px 20px rgba(0,0,0,0.6);
+        border: 1px solid white;
+        font-weight: bold;
+        background-color: inherit;
+        cursor: pointer;
+        transition: transform .2s ease;
+        color: white;
+
+    }
+
+    .startbutton.animate:active{
+        transform: scale(0.96);
+    }
+
+    .startbutton.animate::before,
+    .startbutton.animate::after{
+        content: "";
+        position:absolute;
+        height:35px;
+        width: 90px;
+        left: 76%;
+        transform: translateX(-70%);
+        background-repeat: no-repeat;
+
+    }
+
+    .startbutton.animate::before{
+        bottom:70px;
+        background-image: radial-gradient(circle,rgb(249, 249, 249) 20%,transparent 20%),
+        radial-gradient(circle, rgb(239, 127, 127) 20%,transparent 20%),
+        radial-gradient(circle,rgb(225, 10, 10) 20%,transparent 20%),
+        radial-gradient(circle,rgb(230, 204, 204) 20%,transparent 30%),
+        radial-gradient(circle,rgb(241, 13, 13) 10%,transparent 20%),
+        radial-gradient(circle,rgb(241, 13, 13) 10%,transparent 20%);
+        background-size: 40% 40%,20% 20%,15% 20%,20% 30%,30% 30%,15% 15%;
+        background-position: 5% 90%,10% 90%,15% 80%,60% 70%,20% 80%,40% 70%;
+
+        animation: topBubbles .6s ease-in-out infinite;
+    }
+
+    @keyframes topBubbles{
+        50%{
+            background-position:  0% 80%,0% 20%,10% 40%,20% 0%,80% 10%,20% 50%;
+        }
+        100%{
+            
+        background-position: 0% 70%,0% 10%,10% 30%,20% 0%,80% 0%,20% 40%;
+        background-size: 0% 0%,0% 0%,0% 0%,0% 0%,0% 0%,0% 0%;
+
+        }
+
+    }
+a{
+    text-decoration: none;
+    font-family: Roboto;
+    color: white;
+    font-size: 20px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    gap: 30px;
+    line-height: 90px;
+}
+
+
+    .startbutton.animate::after{
+        bottom:20px;
+        background-image: radial-gradient(circle,rgb(241, 13, 13) 20%,transparent 20%),
+        radial-gradient(circle, rgb(239, 127, 127) 20%,transparent 20%),
+        radial-gradient(circle,rgb(221, 207, 207) 20%,transparent 20%),
+        radial-gradient(circle,rgb(219, 204, 204) 20%,transparent 30%),
+        radial-gradient(circle,rgb(241, 13, 13) 10%,transparent 20%),
+        radial-gradient(circle,rgb(241, 13, 13) 10%,transparent 20%);
+        background-size: 40% 40%,20% 20%,15% 20%,20% 30%,30% 30%,15% 15%;
+        background-position: 5% 90%,10% 90%,15% 80%,60% 70%,20% 80%,40% 70%;
+
+        animation: bottomBubbles .6s ease-in-out infinite;
+    }
+
+    @keyframes bottomBubbles{
+        50%{
+            background-position: 5% 70%,10% 80%,15% 80%,50% 70%,20% 110%,40% 70%;    
+        }
+        100%{
+         background-position: 5% 90%,10% 90%,15% 80%,60% 70%,20% 80%,40% 70%;
+         background-size: 0% 0%,0% 0%,0% 0%,0% 0%,0% 0%,0% 0%;
+        }
+    }

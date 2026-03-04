@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            
+        }
+        .container{
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .layer{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: 250vh;
+            background: #fff;
+            box-shadow: 
+            inset -10px 0 30px rgba(0,0,0,1),
+            inset 10px 0 30px rgba(0,0,0,1),
+            inset -10px 0 10px rgba(255,255,255,0.25),
+            inset 10px 0 10px rgba(255,255,255,0.25),
+            0 0 50px rgba(0,0,0,1);           
+        }
+
+        .layer.layer1{
+            background: #222 radial-gradient(#ff6d6d 9px,#000 9px,#000 13px,transparent);
+            background-size: 35px 35px;
+            transform: translate(-50%,-50%) rotate(45deg);
+            z-index: 10;
+            animation: movement2 5s linear infinite;
+        }
+        .layer.layer2{
+            background: #222 radial-gradient(#7bff6d 9px,#000 9px,#000 13px,transparent);
+            background-size: 35px 35px;
+            transform: translate(-5%,-50%) rotate(-45deg);
+            z-index: 11;
+            animation: movement 5s linear infinite;
+        }
+        .layer.layer3{
+            background: #222 radial-gradient(#ffff6d 9px,#000 9px,#000 13px,transparent);
+            background-size: 35px 35px;
+            transform: translate(-50%,-43%) rotate(135deg);
+            z-index: 8;
+            animation: movement2 5s linear infinite;
+        }
+        .layer.layer4{
+            background: #222 radial-gradient(#0b02ff 9px,#000 9px,#000 13px,transparent);
+            background-size: 35px 35px;
+            transform: translate(-50%,-40%) rotate(45deg);
+            z-index: 6;
+            animation: movement 5s linear infinite;
+        }
+        .layer.layer5{
+            background: #222 radial-gradient(#f8ad00 9px,#000 9px,#000 13px,transparent);
+            background-size: 35px 35px;
+            transform: translate(-50%,-60%) rotate(45deg);
+            z-index: 6;
+            animation: movement 2s linear infinite;
+        }
+        .layer.layer6{
+            background: #222 radial-gradient(aqua 9px,#000 9px,#000 13px,transparent);
+            background-size: 35px 35px;
+            transform: translate(-50%,-62%) rotate(-45deg);
+            z-index: 8;
+            animation: movement2 5s linear infinite;
+        }
+
+        @keyframes movement {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 35px -35px;
+            }
+        }
+        @keyframes movement2 {
+            0%{
+                background-position: 0 0;
+            }
+            100%{
+                background-position: 35px -35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="layer layer1"></div>           
+        <div class="layer layer2"></div>       
+        <div class="layer layer3"></div>       
+        <div class="layer layer4"></div>       
+        <div class="layer layer5"></div>
+        <div class="layer layer6"></div>           
+    </div>
+</body>
+</html>

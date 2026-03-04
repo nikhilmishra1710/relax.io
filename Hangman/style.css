@@ -1,0 +1,301 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+form{
+  display: none;
+}
+body{
+    overflow: hidden;
+}
+
+button{
+  cursor: crosshair;
+}
+
+.main-display{
+    position: absolute;
+    top: 0;
+    z-index: 15;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    background: transparent;
+}
+
+.left_area{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60%;
+    justify-content: center;
+    padding: 5%;
+    gap: 5%;
+    
+}
+
+.right_area{
+    display: flex;
+    height: 100%;
+    width: 40%;
+    justify-content: center;
+    padding: 5%;
+    
+}
+
+.score{
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  height: 20px;
+  padding: 5px;
+  width: auto;
+  font-size: 20px;
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    width: 100%;
+    gap: 25px;
+    padding: 5%;
+}
+
+.play_area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    gap: 10px;
+}
+
+.hint{
+    display: flex;
+    height: 50%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-family: cursive;
+}
+
+.play_area input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    width: 10%;
+    padding-left: 2.5%;
+    border-bottom: 2.5px solid black;
+    font-size: 2em;
+    color: black;
+}
+
+.virtual_board{
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    width: 100%;
+    padding: 2%;
+    gap: 7%;
+}
+
+.row1,.row2,.row3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7%
+}
+
+.keycontain button{
+    background: transparent;
+    border: 0;
+    font-size: 2em;
+    text-transform: capitalize;
+    text-shadow: 15px;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.keycontain img{
+  height: 40px;
+  width: 40px;
+  display: none;
+  transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.keycontain button:hover{
+    font-size: 2.5em;
+    transition: 0;
+}
+
+.img_area{
+    display: block;
+    width: 80%;
+    height: 80%;
+}
+.img_area img{
+    height: 100%;
+    background: transparent;
+}
+
+.loss-display{
+  display: none;
+}
+
+/* BACKGROUND CSS*/
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(120deg,rgb(129, 197, 240),rgb(99, 179, 236));
+    overflow: hidden;
+    z-index: -1111;
+    animation: changebg 30s linear infinite;
+  }
+
+  @keyframes changebg {
+    0%,100%{
+      background: linear-gradient(120deg,rgb(129, 197, 240),rgb(171, 223, 249));
+    }
+    25%{
+      background: linear-gradient(180deg,rgb(129, 197, 240),rgb(146, 193, 243));
+    }
+    50%{
+      background: linear-gradient(240deg,rgb(129, 197, 240),rgb(109, 216, 245));  
+    }
+    75%{
+      background: linear-gradient(300deg,rgb(129, 197, 240),rgb(94, 240, 243));
+    }
+  }
+
+  section .air{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+    background-size: 1000px 100px
+  }
+  section .air.air1{
+    animation: wave 30s linear infinite;
+    z-index: -1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+  }
+  section .air.air2{
+    animation: wave2 15s linear infinite;
+    z-index: -999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+  }
+  section .air.air3{
+    animation: wave 30s linear infinite;
+    z-index: -998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+  }
+  section .air.air4{
+    animation: wave2 25s linear infinite;
+    z-index: -997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+  }
+  @keyframes wave{
+    0%{
+      background-position-x: 0px; 
+    }
+    100%{
+      background-position-x: 1000px; 
+    }
+  }
+  @keyframes wave2{
+    0%{
+      background-position-x: 0px; 
+    }
+    100%{
+      background-position-x: -1000px; 
+    }
+  }
+/* START DISPLAY*/
+.win-display{
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100vw;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  backdrop-filter: blur(5px);
+  
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.start{
+  font-size: 50px;
+}   
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.homebtn,.startbtn{
+  font-size: 45px;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  transition: 2s;
+}
+
+.homebtn:hover,.startbtn:hover{
+  font-size: 60px;
+  transition: 0s;
+}
+
+.svg-wrapper {
+  margin: 0 auto;
+  width: 320px;
+}
+.shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: red;
+  border-bottom: 5px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+.text {
+  font-family: 'Roboto Condensed';
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 8px;
+  font-weight: 900;
+  color: black;
+  top: -48px;
+  left: 50px;
+  position: relative;
+}
+.svg-wrapper:hover .shape {
+  stroke-width: 5px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <script src="https://kit.fontawesome.com/3121321f07.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="./style.css">
+    <script src="./hangman.js"></script>
+</head>
+<body>
+    <div class="score">SCORE: </div>
+    <section class="background">
+        <div class='air air1'></div>
+        <div class='air air2'></div>
+        <div class='air air3'></div>
+        <div class='air air4'></div>
+    </section>
+    <div class="main-display">
+        <div class="left_area">
+            
+            <div class="contents">
+                <div class="play_area">
+
+                </div>
+                <div class="hint">
+                    <span class="desc"></span>
+                </div>
+            </div>
+            <div class="virtual_board">
+                <div class="row1">
+                    <div class="keycontain">
+                        <img id="img_a" src="">
+                        <button type="button" id="a" onclick="check('a')">A</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_b" src="">
+                        <button type="button" id="b" onclick="check('b')">B</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_c" src="">
+                        <button type="button" id="c" onclick="check('c')">C</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_d" src="">
+                        <button type="button" id="d" onclick="check('d')">D</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_e" src="">
+                        <button type="button" id="e" onclick="check('e')">E</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_f" src="">
+                        <button type="button" id="f" onclick="check('f')">F</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_g" src="">
+                        <button type="button" id="g" onclick="check('g')">G</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_h" src="">
+                        <button type="button" id="h" onclick="check('h')">H</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_i" src="">
+                        <button type="button" id="i" onclick="check('i')">I</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_j" src="">
+                        <button type="button" id="j" onclick="check('j')">J</button>
+                    </div>
+                </div>
+                <div class="row2">
+                    <div class="keycontain">
+                        <img id="img_k" src="">
+                        <button type="button" id="k" onclick="check('k')">k</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_l" src="">
+                        <button type="button" id="l" onclick="check('l')">l</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_m" src="">
+                        <button type="button" id="m" onclick="check('m')">m</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_n" src="">
+                        <button type="button" id="n" onclick="check('n')">n</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_o" src="">
+                        <button type="button" id="o" onclick="check('o')">o</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_p" src="">
+                        <button type="button" id="p" onclick="check('p')">p</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_q" src="">
+                        <button type="button" id="q" onclick="check('q')">q</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_r" src="">
+                        <button type="button" id="r" onclick="check('r')">r</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_s" src="">
+                        <button type="button" id="s" onclick="check('s')">s</button>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div class="keycontain">
+                        <img id="img_t" src="">
+                        <button type="button" id="t" onclick="check('t')">t</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_u" src="">
+                        <button type="button" id="u" onclick="check('u')">u</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_v" src="">
+                        <button type="button" id="v" onclick="check('v')">v</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_w" src="">
+                        <button type="button" id="w" onclick="check('w')">w</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_x" src="">
+                        <button type="button" id="x" onclick="check('x')">x</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_y" src="">
+                        <button type="button" id="y" onclick="check('y')">y</button>
+                    </div>
+                    <div class="keycontain">
+                        <img id="img_z" src="">
+                        <button type="button" id="z" onclick="check('z')">z</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right_area">
+            <div class="img_area">
+                <img src="./Images/hangman0.png" alt="Not available" id="hangman">
+            </div>
+        </div>
+    </div>
+    <div class="win-display">
+        <div class="container">
+            <!--span class="name">
+                <?php echo $_COOKIE['username']?>
+            </span--><br>
+            <div class="svg-wrapper">
+                <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width="320" />
+            
+                  <div class="text">HANGMAN</div>
+            
+                </svg>
+            </div>
+            <span class="buttons"><button type="button" onclick="startgame()" class="homebtn"><i class="fa-solid fa-play"></i></button>
+                <button type="button" class="startbtn"><i class="fa-solid fa-house"></i></button></span>
+        </div>
+    </div>
+    <div class="loss-display"></div>
+</body>
+</html>

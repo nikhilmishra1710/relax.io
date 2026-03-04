@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gameboard{
+            position: absolute;
+            height: 500px;
+            width: 500px;
+            border: 2px solid red;
+            top: 25%;
+            right: 25%;
+            transform: translate(25%,-25%);
+            
+        }
+        .upper{
+            height: 100px;
+            width: 500px;
+            border: 2px solid green;
+        }
+
+        .lower{
+            height: 400px;
+            width: 500px;
+            display: grid;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .card{
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .card-front,.card-back{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            background: #282A3A;
+            border: 2px solid red;
+            transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+            backface-visibility: hidden;
+        }
+
+        .card-back{
+            font-size: 50pt;
+            text-align: center;
+            background: none;
+            transform: rotateY(180deg) rotateZ(50deg);
+            user-select: none;
+        }
+
+        .flipped .card-front{
+            transform: rotateY(180deg) rotateZ(50deg);
+        }
+
+        .flipped .card-back{
+            transform: rotateY(0) rotateZ(0);
+        }
+
+        .shake{
+            animation: move 0.5s 10 linear;
+        }
+
+        @keyframes move {
+            0%{
+                left:-5%;
+            }
+            20%{
+                left: -10%;
+            }
+            30%{
+                left: -5%;
+            }
+            40%{
+                left: 0;
+            }
+            50%{
+                left: 5%;
+            }
+            60%{
+                left: 10%;
+            }
+            70%{
+                left: 5%;
+            }
+            80%{
+                left:0
+            }
+        }
+
+
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="gameboard">
+        <div class="upper">
+            <p class="time"></p>
+            <p class="flips"></p>
+        </div>
+        <div class="lower" style="grid-template-columns: repeat(3,auto)">
+            <div class="card">
+                <div class="card-front"></div>
+                <div class="card-back">🥳</div>
+            </div>
+            <div class="card">
+                <div class="card-front"></div>
+                <div class="card-back">👍</div>
+            </div>
+            <div class="card">
+                <div class="card-front"></div>
+                <div class="card-back">🥳</div>
+            </div>
+            <div class="card">
+                <div class="card-front"></div>
+                <div class="card-back">😂</div>
+            </div>
+            <div class="card">
+                <div class="card-front"></div>
+                <div class="card-back">👍</div>
+            </div>
+            <div class="card">
+                <div class="card-front"></div>
+                <div class="card-back">😂</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var flip=0;
+        var totalflip=0;
+        var start=0;
+        var timevar=0;
+        var win=0;
+
+        function startg(){setInterval(()=>{
+            timevar++;
+            document.querySelector('.time').innerHTML=timevar;
+            document.querySelector('.flips').innerHTML=totalflip;
+        },1000);
+        }
+        
+        document.addEventListener('click',event=>{
+            
+            totalflip++;
+            const trigger=event.target;
+            const final=trigger.parentElement;
+
+            if(final.className.includes('card')){
+                if(!start)startg();
+                start=1;                
+                flipcard(final);
+            }
+        })
+        
+        const flipcard=card=>{
+            flip++;
+            if(flip<=2){
+                card.classList.add('flipped');
+            }
+            if(flip===2){
+                const selected=document.querySelectorAll('.flipped:not(.matched)');
+                if(selected[0].innerHTML===selected[1].innerHTML){
+                    
+                    selected[0].classList.add('matched');
+                    selected[1].classList.add('matched');
+                    win++;
+                    alert(win);
+                }
+                if(win===3){
+                    alert('hello');
+                    over();
+                }
+                setTimeout(()=>{
+                    document.querySelectorAll('.card.flipped:not(.matched)').forEach(card=>{
+                    card.classList.add('shake');
+                },1600);
+                
+            })
+                setTimeout(()=>{
+                    reflip();
+                },1000);
+                flip=0;
+            }
+        }
+
+        const reflip=()=>{
+            document.querySelectorAll('.card:not(.matched)').forEach(card=>{
+                card.classList.remove('flipped');
+                card.classList.remove('shake');
+            })
+        }
+
+        function over(){
+            
+            var cont=document.getElementsByClassName('gameboard');
+            cont[0].style.display='none';
+            alert('You win');
+            
+        }
+    </script>
+</body>
+</html>

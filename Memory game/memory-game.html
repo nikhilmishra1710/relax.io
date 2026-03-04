@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>    
+    <script src="https://kit.fontawesome.com/3121321f07.js" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="./style.css">
+    <script src="./game.js"></script>
+</head>
+<body>
+    <div class="background">
+
+    </div>
+    <div class="upper">
+        <p class="time">TIME: </p>
+        <p class="flips">TOTAL FLIPS: </p>
+    </div>
+    <div class="main_display">
+        <div class="container">
+            <!--span class="name">
+                <?php echo $_COOKIE['username']?>
+            </span--><br>
+            <div class="svg-wrapper">
+                <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width="400" />
+            
+                  <div class="text">THINK AND LINK</div>
+            
+                </svg>
+            </div>
+            <span class="buttons"><button type="button" onclick="startgame(1)" class="homebtn">EASY</button>
+                <button type="button" onclick="startgame(2)" class="homebtn">MEDIUM</button>
+                <button type="button" onclick="startgame(3)" class="homebtn">HARD</button>
+                <button type="button" class="startbtn"><i class="fa-solid fa-house"></i></button></span>
+        </div>
+    </div>
+    <div class="gameboard">
+        
+        <div class="lower">
+        </div>
+    </div>
+    <script>
+        var style=["--color: blue; --height: 200px; --width: 200px; --top: 2%; --left: 5%;",
+        "--color: #f70202; --height: 250px; --width: 200px; --top: 10%; --left: 65%;",
+        "--color: #f77102; --height: 175px; --width: 250px; --top: 17%; --left: 30%;",
+        "--color: #6002f7; --height: 200px; --width: 200px; --top: 12%; --left: 93%;",
+        "--color: #71f702; --height: 200px; --width: 175px; --top: 44%; --left: 88%;",
+        "--color: #ff1493; --height: 250px; --width: 200px; --top: 42%; --left: 10%;",
+        "--color: #ffff00; --height: 200px; --width: 200px; --top: 82%; --left: 67%;",
+        "--color: #ff8c00; --height: 175px; --width: 175px; --top: 44%; --left: 57%;",
+        "--color: #02bef7; --height: 200px; --width: 200px; --top: 74%; --left: 32%;",
+        "--color: blue; --height: 250px; --width: 175px; --top: 80%; --left: 1%;"]
+        var delay=['-0.2s','-.6s','-1s','-2s','-5s','-3s','-.8s','-4s','-.4s','-.6s']
+        var anim=0
+        function func(){
+            var bgdiv=document.querySelector(".background")
+            for(let i=0;i<style.length;i++){
+            var n=document.createElement("div")
+            n.classList.add("blobs")
+            if(anim){
+                anim=1
+                n.classList.add("animation1")
+            }else{
+                anim=0
+                n.classList.add("animation2")
+            }
+            n.style=style[i]
+            n.style.animationDelay=delay[i]
+            bgdiv.appendChild(n)}
+        }
+        func()
+    </script>
+</body>
+</html>
